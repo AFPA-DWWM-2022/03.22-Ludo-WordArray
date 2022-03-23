@@ -89,11 +89,7 @@ public class WordArray extends ArrayList<String> {
         // + total count of characters for every word
         // + 3 * word count => for each word, leading '-' & trailing "-+"
         // + 1 => Final '\n'
-        // + 1 => Mandatory extra space(1)
-        //
-        // 1. char arrays require one extra space to store the special value '\0' which
-        // marks the end of the array
-        int length = 1 + words.chars + 3 * words.size() + 2;
+        int length = 1 + words.chars + 3 * words.size() + 1;
         char[] buffer = new char[length]; // This will contain the decorative line
         int i = 0; // Index to move around in `buffer`
 
@@ -114,7 +110,7 @@ public class WordArray extends ArrayList<String> {
             buffer[i++] = '+';
         }
         // Add the line break at the end
-        buffer[++i] = '\n';
+        buffer[i] = '\n';
 
         /* 2) Append the line to the string, this will be the top one */
         sb.append(buffer);
@@ -171,11 +167,10 @@ public class WordArray extends ArrayList<String> {
         buffer[i++] = '-';
 
         // Add '-' for every character in the longest word of the array
-        for (int offset = i; i - offset < words.maxLength; i += 1)
+        for (int offset = i; i - offset < words.maxLength + 1; i += 1)
             buffer[i] = '-';
 
-        // End with "-+"
-        buffer[i++] = '-';
+        // End with '+'
         buffer[i++] = '+';
 
         // Don't forget the line break !
@@ -224,15 +219,14 @@ public class WordArray extends ArrayList<String> {
     // @formatter:on
     public static String toTable(WordArray words) {
         StringBuilder sb = new StringBuilder();
-        int length = 4 + words.maxLength + 2;
+        int length = "|  |".length() + words.maxLength + 1;
         char[] buffer = new char[length]; // This will contain the decorative line
         int i = 0; // Index to move around in `buffer`
 
         buffer[i++] = '+';
         buffer[i++] = '-';
-        for (int offset = i; i - offset < words.maxLength; i += 1)
+        for (int offset = i; i - offset < words.maxLength + 1; i += 1)
             buffer[i] = '-';
-        buffer[i++] = '-';
         buffer[i++] = '+';
         buffer[i] = '\n';
         sb.append(buffer);
