@@ -59,7 +59,7 @@ public class WordArray extends ArrayList<String> {
      *    +--------+
      *    | baz    |
      *    +--------+
-     */
+     **/
     //@formatter:on
     public String toString(format format) {
         switch (format) {
@@ -162,8 +162,9 @@ public class WordArray extends ArrayList<String> {
         buffer[i++] = '+';
         buffer[i++] = '-';
 
-        // Add '-' for every character in the longest word of the array
+        // For every character in the longest word of the array + 1
         for (int offset = i; i - offset < words.maxLength + 1; i += 1)
+            // Add a '-' to the line
             buffer[i] = '-';
 
         // End with '+'
@@ -216,8 +217,8 @@ public class WordArray extends ArrayList<String> {
     public static String toTable(WordArray words) {
         StringBuilder sb = new StringBuilder();
         int length = "|  |".length() + words.maxLength + 1;
-        char[] buffer = new char[length]; // This will contain the decorative line
-        int i = 0; // Index to move around in `buffer`
+        char[] buffer = new char[length];
+        int i = 0;
 
         buffer[i++] = '+';
         buffer[i++] = '-';
@@ -272,6 +273,7 @@ public class WordArray extends ArrayList<String> {
         } finally {
             // Shift the cursor back up a line (\033[A)
             // Erase the line (\033[2K)
+            // This doesn't work on Windows, I think.
             System.out.print("\033[A\033[2K");
             System.out.println("$> [END OF INPUT]");
         }
