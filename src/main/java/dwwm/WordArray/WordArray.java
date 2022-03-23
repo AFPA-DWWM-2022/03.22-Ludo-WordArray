@@ -153,7 +153,7 @@ public class WordArray extends ArrayList<String> {
         // 4 => Leading "+-" & trailing "-+"
         // + `maxLength` => longest word size
         // + 1 => final '\n'
-        int length = 4 + words.maxLength + 2;
+        int length = "|  |".length() + words.maxLength + 1;
         char[] buffer = new char[length]; // This will contain the decorative line
         int i = 0; // Index to move around in `buffer`
 
