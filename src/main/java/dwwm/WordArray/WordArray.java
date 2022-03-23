@@ -153,10 +153,6 @@ public class WordArray extends ArrayList<String> {
         // 4 => Leading "+-" & trailing "-+"
         // + `maxLength` => longest word size
         // + 1 => final '\n'
-        // + 1 => Mandatory extra space(1)
-        //
-        // 1. char arrays require one extra space to store the special value '\0' which
-        // marks the end of the array
         int length = 4 + words.maxLength + 2;
         char[] buffer = new char[length]; // This will contain the decorative line
         int i = 0; // Index to move around in `buffer`
