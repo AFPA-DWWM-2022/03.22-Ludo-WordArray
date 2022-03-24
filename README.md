@@ -1,3 +1,3 @@
 ## Click to play !
 
-[![asciicast](https://asciinema.org/a/4zwuBrGs5TNUtoz2hJWGMgfVz.svg)](https://asciinema.org/a/4zwuBrGs5TNUtoz2hJWGMgfVz)
+[![asciicast](https://asciinema.org/a/EFlCF3bxdjsQUE33X10YmpN3Z.svg)](https://asciinema.org/a/EFlCF3bxdjsQUE33X10YmpN3Z)
